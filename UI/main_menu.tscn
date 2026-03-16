@@ -8,6 +8,8 @@
 [ext_resource type="FontFile" uid="uid://c47vp0u7js3wn" path="res://Assets/Ghastly Panic.ttf" id="5_f40uw"]
 [ext_resource type="AudioStream" uid="uid://hc5825gas5uq" path="res://Assets/ui/MainMenu_SoundTrack.mp3" id="7_ev3b6"]
 [ext_resource type="Script" uid="uid://btmmrfgm8gxmv" path="res://UI/audio_cntroller.gd" id="8_k0a0m"]
+[ext_resource type="AudioStream" uid="uid://n5h4n07r8r1a" path="res://Assets/ui/press_sfx.mp3" id="9_cafmx"]
+[ext_resource type="Script" uid="uid://vr6wl7nwgqep" path="res://UI/button_sfx.gd" id="10_tcix6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ev3b6"]
 bg_color = Color(0, 0, 0, 1)
@@ -51,7 +53,7 @@ shadow_size = 5
 shadow_offset = Vector2(0, 3.6)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2mudq"]
-bg_color = Color(0.07123137, 0.0712314, 0.07123133, 1)
+bg_color = Color(0, 0, 0, 1)
 border_width_left = 4
 border_width_top = 4
 border_width_right = 4
@@ -200,10 +202,15 @@ theme_override_fonts/font = ExtResource("5_f40uw")
 theme_override_font_sizes/font_size = 160
 text = "JUMPORIA"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1161696797]
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1161696797]
 stream = ExtResource("7_ev3b6")
 autoplay = true
 bus = &"Music"
+
+[node name="ButtonSFX" type="AudioStreamPlayer" parent="." unique_id=1976487432]
+stream = ExtResource("9_cafmx")
+bus = &"SFX"
+script = ExtResource("10_tcix6")
 
 [node name="Options" type="Panel" parent="." unique_id=1350706606]
 layout_mode = 1
@@ -219,21 +226,6 @@ offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2mudq")
-
-[node name="Label" type="Label" parent="Options" unique_id=2089009999]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -103.5
-offset_top = 12.0
-offset_right = 103.5
-offset_bottom = 74.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0.5411765, 0.011764706, 0.011764706, 1)
-theme_override_fonts/font = ExtResource("1_p8ccj")
-theme_override_font_sizes/font_size = 30
-text = "OPTIONS"
 
 [node name="Back" type="Button" parent="Options" unique_id=1226422939]
 layout_mode = 1
@@ -260,9 +252,9 @@ text = "BACK"
 
 [node name="AudioCntroller" type="HSlider" parent="Options" unique_id=1045510656]
 layout_mode = 0
-offset_left = 76.0
+offset_left = 209.0
 offset_top = 143.0
-offset_right = 421.0
+offset_right = 437.0
 offset_bottom = 159.0
 theme_override_styles/slider = SubResource("StyleBoxLine_cafmx")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_tcix6")
@@ -273,8 +265,248 @@ value = 1.0
 script = ExtResource("8_k0a0m")
 audio_bus_name = "Music"
 
+[node name="AudioCntroller2" type="HSlider" parent="Options" unique_id=1643320620]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 232.0
+offset_right = 438.0
+offset_bottom = 248.0
+theme_override_styles/slider = SubResource("StyleBoxLine_cafmx")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_tcix6")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_mmlvu")
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = ExtResource("8_k0a0m")
+audio_bus_name = "SFX"
+
+[node name="Labels" type="Control" parent="Options" unique_id=1762333376]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Options/Labels" unique_id=2089009999]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 126.5
+offset_top = 12.0
+offset_right = 333.5
+offset_bottom = 74.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.5411765, 0.011764706, 0.011764706, 1)
+theme_override_fonts/font = ExtResource("1_p8ccj")
+theme_override_font_sizes/font_size = 30
+text = "OPTIONS"
+
+[node name="Label2" type="Label" parent="Options/Labels" unique_id=1694462051]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 8.0
+offset_top = 119.0
+offset_right = 215.0
+offset_bottom = 181.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.5411765, 0.011764706, 0.011764706, 1)
+theme_override_fonts/font = ExtResource("1_p8ccj")
+theme_override_font_sizes/font_size = 30
+text = "MUSIC"
+
+[node name="Label3" type="Label" parent="Options/Labels" unique_id=1243620365]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 37.0
+offset_top = 206.0
+offset_right = 244.0
+offset_bottom = 268.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.5411765, 0.011764706, 0.011764706, 1)
+theme_override_fonts/font = ExtResource("1_p8ccj")
+theme_override_font_sizes/font_size = 30
+text = "SFX"
+
+[node name="LevelSelection" type="Panel" parent="." unique_id=1601329873]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2mudq")
+
+[node name="Buttons" type="Control" parent="LevelSelection" unique_id=1172457307]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LevelSelection/Buttons" unique_id=1615114463]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -163.5
+offset_top = 136.0
+offset_right = 163.5
+offset_bottom = 188.0
+grow_horizontal = 2
+theme_override_constants/separation = 70
+
+[node name="Button" type="Button" parent="LevelSelection/Buttons/HBoxContainer" unique_id=768885007]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.5411765, 0.011764706, 0.011764706, 1)
+theme_override_fonts/font = ExtResource("1_p8ccj")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_ev3b6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_f40uw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8ctay")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f40uw")
+text = "LEVEL 1"
+
+[node name="Button2" type="Button" parent="LevelSelection/Buttons/HBoxContainer" unique_id=558299267]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.5411765, 0.011764706, 0.011764706, 1)
+theme_override_fonts/font = ExtResource("1_p8ccj")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_k0a0m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_f40uw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8ctay")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f40uw")
+text = "LEVEL 2"
+
+[node name="CenterContainer" type="CenterContainer" parent="LevelSelection/Buttons" unique_id=509648464]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.5
+offset_top = -26.0
+offset_right = 81.5
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button3" type="Button" parent="LevelSelection/Buttons/CenterContainer" unique_id=415402314]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.5411765, 0.011764706, 0.011764706, 1)
+theme_override_fonts/font = ExtResource("1_p8ccj")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_tk8dj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_f40uw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8ctay")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f40uw")
+text = "LEVEL 3"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="LevelSelection/Buttons" unique_id=314968256]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -166.0
+offset_top = -181.0
+offset_right = 167.0
+offset_bottom = -129.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 65
+
+[node name="Button4" type="Button" parent="LevelSelection/Buttons/HBoxContainer2" unique_id=384451919]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.5411765, 0.011764706, 0.011764706, 1)
+theme_override_fonts/font = ExtResource("1_p8ccj")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_tk8dj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_f40uw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8ctay")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f40uw")
+text = "LEVEL 4"
+
+[node name="Button5" type="Button" parent="LevelSelection/Buttons/HBoxContainer2" unique_id=1768380765]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.5411765, 0.011764706, 0.011764706, 1)
+theme_override_fonts/font = ExtResource("1_p8ccj")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_tk8dj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_f40uw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8ctay")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f40uw")
+text = "LEVEL 5"
+
+[node name="Label" type="Label" parent="LevelSelection" unique_id=1564737594]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 38.0
+offset_right = 449.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(0.5411765, 0.011764706, 0.011764706, 1)
+theme_override_fonts/font = ExtResource("1_p8ccj")
+theme_override_font_sizes/font_size = 30
+text = "SELECT A LEVEL"
+
+[node name="Back" type="Button" parent="LevelSelection" unique_id=172347602]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -110.5
+offset_top = -86.0
+offset_right = 110.5
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.5411765, 0.011764706, 0.011764706, 1)
+theme_override_fonts/font = ExtResource("1_p8ccj")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_tk8dj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_f40uw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8ctay")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f40uw")
+text = "BACK"
+
 [connection signal="pressed" from="Buttons/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Buttons/Button" to="ButtonSFX" method="_on_button_pressed"]
 [connection signal="pressed" from="Buttons/Button2" to="." method="_on_options_2_pressed"]
+[connection signal="pressed" from="Buttons/Button2" to="ButtonSFX" method="_on_button_2_pressed"]
 [connection signal="pressed" from="Buttons/Button3" to="." method="_on_exit_3_pressed"]
+[connection signal="pressed" from="Buttons/Button3" to="ButtonSFX" method="_on_button_3_pressed"]
 [connection signal="pressed" from="Options/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Options/Back" to="ButtonSFX" method="_on_back_pressed"]
 [connection signal="value_changed" from="Options/AudioCntroller" to="Options/AudioCntroller" method="_on_value_changed"]
+[connection signal="value_changed" from="Options/AudioCntroller2" to="Options/AudioCntroller2" method="_on_value_changed"]
+[connection signal="pressed" from="LevelSelection/Buttons/HBoxContainer/Button" to="." method="_on_level_button_pressed"]
+[connection signal="pressed" from="LevelSelection/Buttons/HBoxContainer/Button" to="ButtonSFX" method="_on_level_button_pressed"]
+[connection signal="pressed" from="LevelSelection/Buttons/HBoxContainer/Button2" to="." method="_on_level_button_2_pressed"]
+[connection signal="pressed" from="LevelSelection/Buttons/HBoxContainer/Button2" to="ButtonSFX" method="_on_level_button_2_pressed"]
+[connection signal="pressed" from="LevelSelection/Buttons/CenterContainer/Button3" to="." method="_on_level_button_3_pressed"]
+[connection signal="pressed" from="LevelSelection/Buttons/CenterContainer/Button3" to="ButtonSFX" method="_on_level_button_3_pressed"]
+[connection signal="pressed" from="LevelSelection/Buttons/HBoxContainer2/Button4" to="." method="_on_level_button_4_pressed"]
+[connection signal="pressed" from="LevelSelection/Buttons/HBoxContainer2/Button4" to="ButtonSFX" method="_on_level_button_4_pressed"]
+[connection signal="pressed" from="LevelSelection/Buttons/HBoxContainer2/Button5" to="." method="_on_level_button_5_pressed"]
+[connection signal="pressed" from="LevelSelection/Buttons/HBoxContainer2/Button5" to="ButtonSFX" method="_on_level_button_5_pressed"]
+[connection signal="pressed" from="LevelSelection/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="LevelSelection/Back" to="ButtonSFX" method="_on_back_pressed"]
