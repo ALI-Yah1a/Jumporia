@@ -15,6 +15,15 @@ run/main_scene="uid://dha3howfr8qc6"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://b4v268103c1lj"
+
+[display]
+
+window/size/mode=2
+window/stretch/mode="canvas_items"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")

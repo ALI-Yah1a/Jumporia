@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://dha3howfr8qc6"]
 
 [ext_resource type="Texture2D" uid="uid://8v7cywufr2qa" path="res://Assets/background/background_layer_1.png" id="1_4cwpn"]
+[ext_resource type="Script" uid="uid://c01k8ibnitofo" path="res://UI/main_menu.gd" id="1_8ctay"]
 [ext_resource type="FontFile" uid="uid://cs5k6csouqhhs" path="res://Assets/Shadow of the Deads.ttf" id="1_p8ccj"]
 [ext_resource type="Texture2D" uid="uid://u8lwindxpl36" path="res://Assets/background/background_layer_2.png" id="2_f40uw"]
 [ext_resource type="Texture2D" uid="uid://b3xxyfe01u2e3" path="res://Assets/background/background_layer_3.png" id="3_8ctay"]
+[ext_resource type="FontFile" uid="uid://c47vp0u7js3wn" path="res://Assets/Ghastly Panic.ttf" id="5_f40uw"]
+[ext_resource type="AudioStream" uid="uid://hc5825gas5uq" path="res://Assets/ui/MainMenu_SoundTrack.mp3" id="7_ev3b6"]
+[ext_resource type="Script" uid="uid://btmmrfgm8gxmv" path="res://UI/audio_cntroller.gd" id="8_k0a0m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ev3b6"]
 bg_color = Color(0, 0, 0, 1)
@@ -11,6 +15,22 @@ corner_radius_top_left = 36
 corner_radius_top_right = 36
 corner_radius_bottom_right = 36
 corner_radius_bottom_left = 36
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f40uw"]
+bg_color = Color(0.24985075, 0.24985075, 0.24985075, 1)
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ctay"]
+bg_color = Color(0.093160845, 0.093160845, 0.09316083, 1)
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f40uw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0a0m"]
 bg_color = Color(0, 0, 0, 1)
@@ -30,6 +50,30 @@ corner_radius_bottom_left = 36
 shadow_size = 5
 shadow_offset = Vector2(0, 3.6)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2mudq"]
+bg_color = Color(0.07123137, 0.0712314, 0.07123133, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.5411765, 0.011764706, 0.011764706, 1)
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_cafmx"]
+color = Color(1, 1, 1, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_tcix6"]
+color = Color(0.5411765, 0.011764706, 0.011764706, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_mmlvu"]
+color = Color(0.5411765, 0.011764706, 0.011764706, 1)
+thickness = 6
+
 [node name="MainMenu" type="Control" unique_id=1672821733]
 layout_mode = 3
 anchors_preset = 15
@@ -37,6 +81,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_8ctay")
 
 [node name="Background" type="Control" parent="." unique_id=743322245]
 layout_mode = 1
@@ -107,6 +152,9 @@ theme_override_colors/font_color = Color(0.5411765, 0.011764706, 0.011764706, 1)
 theme_override_fonts/font = ExtResource("1_p8ccj")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_ev3b6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_f40uw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8ctay")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f40uw")
 text = "START GAME"
 
 [node name="Button2" type="Button" parent="Buttons" unique_id=551389677]
@@ -116,6 +164,9 @@ theme_override_colors/font_color = Color(0.5411765, 0.011764706, 0.011764706, 1)
 theme_override_fonts/font = ExtResource("1_p8ccj")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_k0a0m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_f40uw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8ctay")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f40uw")
 text = "OPTIONS"
 
 [node name="Button3" type="Button" parent="Buttons" unique_id=626197039]
@@ -125,6 +176,9 @@ theme_override_colors/font_color = Color(0.5411765, 0.011764706, 0.011764706, 1)
 theme_override_fonts/font = ExtResource("1_p8ccj")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_tk8dj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_f40uw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8ctay")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f40uw")
 text = "EXIT"
 
 [node name="Label" type="Label" parent="." unique_id=331102381]
@@ -132,16 +186,95 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -199.0
-offset_top = 104.0
-offset_right = 199.0
-offset_bottom = 203.0
+offset_left = -134.0
+offset_top = 42.0
+offset_right = 264.0
+offset_bottom = 226.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.43396407, 0.011716183, 0.05637597, 0.99215686)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 5
 theme_override_constants/shadow_offset_y = 4
 theme_override_constants/shadow_outline_size = 13
-theme_override_fonts/font = ExtResource("1_p8ccj")
-theme_override_font_sizes/font_size = 48
+theme_override_fonts/font = ExtResource("5_f40uw")
+theme_override_font_sizes/font_size = 160
 text = "JUMPORIA"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1161696797]
+stream = ExtResource("7_ev3b6")
+autoplay = true
+bus = &"Music"
+
+[node name="Options" type="Panel" parent="." unique_id=1350706606]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2mudq")
+
+[node name="Label" type="Label" parent="Options" unique_id=2089009999]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -103.5
+offset_top = 12.0
+offset_right = 103.5
+offset_bottom = 74.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.5411765, 0.011764706, 0.011764706, 1)
+theme_override_fonts/font = ExtResource("1_p8ccj")
+theme_override_font_sizes/font_size = 30
+text = "OPTIONS"
+
+[node name="Back" type="Button" parent="Options" unique_id=1226422939]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -110.5
+offset_top = -86.0
+offset_right = 110.5
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.5411765, 0.011764706, 0.011764706, 1)
+theme_override_fonts/font = ExtResource("1_p8ccj")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_tk8dj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_f40uw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8ctay")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f40uw")
+text = "BACK"
+
+[node name="AudioCntroller" type="HSlider" parent="Options" unique_id=1045510656]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 143.0
+offset_right = 421.0
+offset_bottom = 159.0
+theme_override_styles/slider = SubResource("StyleBoxLine_cafmx")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_tcix6")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_mmlvu")
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = ExtResource("8_k0a0m")
+audio_bus_name = "Music"
+
+[connection signal="pressed" from="Buttons/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Buttons/Button2" to="." method="_on_options_2_pressed"]
+[connection signal="pressed" from="Buttons/Button3" to="." method="_on_exit_3_pressed"]
+[connection signal="pressed" from="Options/Back" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="Options/AudioCntroller" to="Options/AudioCntroller" method="_on_value_changed"]
