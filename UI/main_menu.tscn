@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://dha3howfr8qc6"]
+
+[ext_resource type="Texture2D" uid="uid://8v7cywufr2qa" path="res://Assets/background/background_layer_1.png" id="1_4cwpn"]
+[ext_resource type="FontFile" uid="uid://cs5k6csouqhhs" path="res://Assets/Shadow of the Deads.ttf" id="1_p8ccj"]
+[ext_resource type="Texture2D" uid="uid://u8lwindxpl36" path="res://Assets/background/background_layer_2.png" id="2_f40uw"]
+[ext_resource type="Texture2D" uid="uid://b3xxyfe01u2e3" path="res://Assets/background/background_layer_3.png" id="3_8ctay"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ev3b6"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0a0m"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+shadow_size = 5
+shadow_offset = Vector2(0, 3.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tk8dj"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+shadow_size = 5
+shadow_offset = Vector2(0, 3.6)
+
+[node name="MainMenu" type="Control" unique_id=1672821733]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Control" parent="." unique_id=743322245]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Background" unique_id=1948091486]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4cwpn")
+stretch_mode = 6
+
+[node name="TextureRect2" type="TextureRect" parent="Background" unique_id=1424666572]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_f40uw")
+stretch_mode = 6
+
+[node name="TextureRect3" type="TextureRect" parent="Background" unique_id=1092314160]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_8ctay")
+stretch_mode = 6
+
+[node name="ColorRect" type="ColorRect" parent="Background" unique_id=1995550376]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3137255)
+
+[node name="Buttons" type="VBoxContainer" parent="." unique_id=1539606474]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -181.25
+offset_top = -35.0
+offset_right = 181.25
+offset_bottom = 286.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 58
+
+[node name="Button" type="Button" parent="Buttons" unique_id=884140625]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.5411765, 0.011764706, 0.011764706, 1)
+theme_override_fonts/font = ExtResource("1_p8ccj")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_ev3b6")
+text = "START GAME"
+
+[node name="Button2" type="Button" parent="Buttons" unique_id=551389677]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.5411765, 0.011764706, 0.011764706, 1)
+theme_override_fonts/font = ExtResource("1_p8ccj")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_k0a0m")
+text = "OPTIONS"
+
+[node name="Button3" type="Button" parent="Buttons" unique_id=626197039]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.5411765, 0.011764706, 0.011764706, 1)
+theme_override_fonts/font = ExtResource("1_p8ccj")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_tk8dj")
+text = "EXIT"
+
+[node name="Label" type="Label" parent="." unique_id=331102381]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -199.0
+offset_top = 104.0
+offset_right = 199.0
+offset_bottom = 203.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.43396407, 0.011716183, 0.05637597, 0.99215686)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("1_p8ccj")
+theme_override_font_sizes/font_size = 48
+text = "JUMPORIA"
