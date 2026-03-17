@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://cv2laxxsyv3xr"]
+
+[ext_resource type="Script" uid="uid://3kxcou14gnku" path="res://Enemies/flying_eye.gd" id="1_tmmqw"]
+[ext_resource type="Texture2D" uid="uid://ronh2tpp0t5p" path="res://Assets/monsters/Goblin/Death.png" id="2_tmmqw"]
+[ext_resource type="Texture2D" uid="uid://ch10msd62ol2y" path="res://Assets/monsters/Goblin/Run.png" id="3_m2ssi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmtr4"]
+atlas = ExtResource("2_tmmqw")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqvt1"]
+atlas = ExtResource("2_tmmqw")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41qdv"]
+atlas = ExtResource("2_tmmqw")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kg2kb"]
+atlas = ExtResource("2_tmmqw")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uoy6b"]
+atlas = ExtResource("3_m2ssi")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omxdv"]
+atlas = ExtResource("3_m2ssi")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6avi"]
+atlas = ExtResource("3_m2ssi")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgesl"]
+atlas = ExtResource("3_m2ssi")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtebx"]
+atlas = ExtResource("3_m2ssi")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvpfr"]
+atlas = ExtResource("3_m2ssi")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g18g5"]
+atlas = ExtResource("3_m2ssi")
+region = Rect2(900, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_guu5j"]
+atlas = ExtResource("3_m2ssi")
+region = Rect2(1050, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vbxno"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmtr4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqvt1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41qdv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kg2kb")
+}],
+"loop": false,
+"name": &"death",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uoy6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omxdv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6avi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgesl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtebx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvpfr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g18g5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_guu5j")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nd4ol"]
+radius = 13.0
+height = 40.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmmqw"]
+radius = 14.0
+height = 42.0
+
+[node name="Goblin" type="CharacterBody2D" unique_id=803823254 groups=["enemies"]]
+scale = Vector2(2, 2)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_tmmqw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1346995025]
+sprite_frames = SubResource("SpriteFrames_vbxno")
+animation = &"idle"
+frame_progress = 0.8841807
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1617140831]
+position = Vector2(3, 9)
+shape = SubResource("CapsuleShape2D_nd4ol")
+
+[node name="GroundRay" type="RayCast2D" parent="." unique_id=1634019320]
+position = Vector2(27, 0)
+target_position = Vector2(1, 39)
+
+[node name="Killzone" type="Area2D" parent="." unique_id=945410734]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1438074436]
+position = Vector2(3, 9)
+shape = SubResource("CapsuleShape2D_tmmqw")
+
+[connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]

@@ -3,13 +3,17 @@
 [ext_resource type="PackedScene" uid="uid://dfonmqdplowq4" path="res://MainCharacter/player.tscn" id="1_n0qsc"]
 [ext_resource type="Texture2D" uid="uid://dv8cpllrc1u34" path="res://Assets/decorations/shop.png" id="2_dilhk"]
 [ext_resource type="PackedScene" uid="uid://ck53418q83awx" path="res://Enemies/flying_eye.tscn" id="3_3mhv4"]
+[ext_resource type="PackedScene" uid="uid://ce24w66f00ec3" path="res://Enemies/skeleton.tscn" id="4_rf6l5"]
+[ext_resource type="PackedScene" uid="uid://cv2laxxsyv3xr" path="res://Enemies/goblin.tscn" id="5_rfktq"]
+[ext_resource type="PackedScene" uid="uid://c8pkpqklqigtf" path="res://Enemies/mushroom.tscn" id="6_0urlm"]
+[ext_resource type="PackedScene" uid="uid://cex72s18vynpg" path="res://Decorations/finish_line.tscn" id="7_0urlm"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_n0qsc"]
 a = Vector2(-2223, 91)
 b = Vector2(1464, 83)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3mhv4"]
-size = Vector2(2861.5, 496)
+size = Vector2(1168, 496)
 
 [node name="Level_1" type="Node2D" unique_id=1878134694]
 
@@ -36,14 +40,20 @@ scale = Vector2(10, 5)
 texture = ExtResource("2_dilhk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=2065642906]
-position = Vector2(-3258.75, -133)
+position = Vector2(-2412, -133)
 shape = SubResource("RectangleShape2D_3mhv4")
 
 [node name="FlyingEye" parent="." unique_id=803823254 instance=ExtResource("3_3mhv4")]
-position = Vector2(-1749, 72)
+position = Vector2(-1588, 26)
 
-[node name="FlyingEye2" parent="." unique_id=1903014853 instance=ExtResource("3_3mhv4")]
-position = Vector2(-1279, 69)
+[node name="Skeleton" parent="." unique_id=912582780 instance=ExtResource("4_rf6l5")]
+position = Vector2(-479, 40)
 
-[node name="FlyingEye3" parent="." unique_id=693956637 instance=ExtResource("3_3mhv4")]
-position = Vector2(-715, 72)
+[node name="Goblin" parent="." unique_id=487306137 instance=ExtResource("5_rfktq")]
+position = Vector2(-617, 45)
+
+[node name="mushroom" parent="." unique_id=907393398 instance=ExtResource("6_0urlm")]
+position = Vector2(-813, 47)
+
+[node name="FinishLine" parent="." unique_id=918681692 instance=ExtResource("7_0urlm")]
+position = Vector2(1343, -117)

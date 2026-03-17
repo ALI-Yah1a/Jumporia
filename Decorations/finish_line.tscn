@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://cex72s18vynpg"]
+
+[ext_resource type="Script" uid="uid://djdhmifqp2o6r" path="res://Decorations/finish_line.gd" id="1_q6r6n"]
+[ext_resource type="Texture2D" uid="uid://c1cxfxn7jp7dk" path="res://Assets/decorations/FlyingObelisk_no_lightnings_no_letter.png" id="1_uubc2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6r6n"]
+atlas = ExtResource("1_uubc2")
+region = Rect2(0, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wm5rr"]
+atlas = ExtResource("1_uubc2")
+region = Rect2(200, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsirf"]
+atlas = ExtResource("1_uubc2")
+region = Rect2(400, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqfsi"]
+atlas = ExtResource("1_uubc2")
+region = Rect2(600, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_moiqv"]
+atlas = ExtResource("1_uubc2")
+region = Rect2(800, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ce327"]
+atlas = ExtResource("1_uubc2")
+region = Rect2(1000, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_578ts"]
+atlas = ExtResource("1_uubc2")
+region = Rect2(1200, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwx0v"]
+atlas = ExtResource("1_uubc2")
+region = Rect2(1400, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thuik"]
+atlas = ExtResource("1_uubc2")
+region = Rect2(1600, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kejm4"]
+atlas = ExtResource("1_uubc2")
+region = Rect2(1800, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvhvc"]
+atlas = ExtResource("1_uubc2")
+region = Rect2(2000, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njcl8"]
+atlas = ExtResource("1_uubc2")
+region = Rect2(2200, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkpqh"]
+atlas = ExtResource("1_uubc2")
+region = Rect2(2400, 0, 200, 400)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uplce"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6r6n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wm5rr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dsirf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqfsi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_moiqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ce327")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_578ts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwx0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thuik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kejm4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvhvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njcl8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkpqh")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 20.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ctyre"]
+radius = 34.0
+height = 324.0
+
+[node name="FinishLine" type="Area2D" unique_id=918681692]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_q6r6n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=943206887]
+sprite_frames = SubResource("SpriteFrames_uplce")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.722485
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1129165645]
+position = Vector2(2, 29)
+shape = SubResource("CapsuleShape2D_ctyre")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

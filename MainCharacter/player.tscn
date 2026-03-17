@@ -220,12 +220,11 @@ a = Vector2(0, -12)
 b = Vector2(0, 14)
 
 [node name="Player" type="CharacterBody2D" unique_id=862460250 groups=["player"]]
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 script = ExtResource("1_ykwn3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1138777951]
 position = Vector2(0, -1)
-scale = Vector2(1, 0.95454544)
 sprite_frames = SubResource("SpriteFrames_uok1l")
 animation = &"attack"
 autoplay = "idle"

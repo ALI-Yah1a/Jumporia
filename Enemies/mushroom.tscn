@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://c8pkpqklqigtf"]
+
+[ext_resource type="Script" uid="uid://3kxcou14gnku" path="res://Enemies/flying_eye.gd" id="1_2obgq"]
+[ext_resource type="Texture2D" uid="uid://b5wwtk4otq74h" path="res://Assets/monsters/Mushroom/Death.png" id="2_2obgq"]
+[ext_resource type="Texture2D" uid="uid://b3p4cw5iskmnf" path="res://Assets/monsters/Mushroom/Run.png" id="3_v3oa7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ve0ty"]
+atlas = ExtResource("2_2obgq")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcnsm"]
+atlas = ExtResource("2_2obgq")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wx0p"]
+atlas = ExtResource("2_2obgq")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3qhy"]
+atlas = ExtResource("2_2obgq")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pi1mi"]
+atlas = ExtResource("3_v3oa7")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3te3"]
+atlas = ExtResource("3_v3oa7")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0skye"]
+atlas = ExtResource("3_v3oa7")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vt67q"]
+atlas = ExtResource("3_v3oa7")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rr64l"]
+atlas = ExtResource("3_v3oa7")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qka8r"]
+atlas = ExtResource("3_v3oa7")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axaxu"]
+atlas = ExtResource("3_v3oa7")
+region = Rect2(900, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ke8b"]
+atlas = ExtResource("3_v3oa7")
+region = Rect2(1050, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vbxno"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ve0ty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcnsm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wx0p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3qhy")
+}],
+"loop": false,
+"name": &"death",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pi1mi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3te3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0skye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vt67q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rr64l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qka8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axaxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ke8b")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8lxx7"]
+radius = 11.0
+height = 38.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p8ni2"]
+radius = 12.0
+height = 40.0
+
+[node name="mushroom" type="CharacterBody2D" unique_id=803823254 groups=["enemies"]]
+scale = Vector2(2, 2)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_2obgq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1346995025]
+sprite_frames = SubResource("SpriteFrames_vbxno")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1617140831]
+position = Vector2(1, 5)
+shape = SubResource("CapsuleShape2D_8lxx7")
+
+[node name="GroundRay" type="RayCast2D" parent="." unique_id=1634019320]
+position = Vector2(27, 0)
+target_position = Vector2(1, 39)
+
+[node name="Killzone" type="Area2D" parent="." unique_id=945410734]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1438074436]
+position = Vector2(1, 5)
+shape = SubResource("CapsuleShape2D_p8ni2")
+
+[connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]
