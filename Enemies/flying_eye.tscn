@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://ck53418q83awx"]
+
+[ext_resource type="Texture2D" uid="uid://ysq2gbi3m3wo" path="res://Assets/monsters/Flying eye/Death.png" id="1_dxwml"]
+[ext_resource type="Script" uid="uid://3kxcou14gnku" path="res://Enemies/flying_eye.gd" id="1_u108g"]
+[ext_resource type="Texture2D" uid="uid://buomfxwhx1lte" path="res://Assets/monsters/Flying eye/Flight.png" id="2_u108g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjtvk"]
+atlas = ExtResource("1_dxwml")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2008"]
+atlas = ExtResource("1_dxwml")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6w8e"]
+atlas = ExtResource("1_dxwml")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ld2bi"]
+atlas = ExtResource("1_dxwml")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oenmk"]
+atlas = ExtResource("2_u108g")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wi5rf"]
+atlas = ExtResource("2_u108g")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkfrr"]
+atlas = ExtResource("2_u108g")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0sjn"]
+atlas = ExtResource("2_u108g")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sy5jv"]
+atlas = ExtResource("2_u108g")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r62f1"]
+atlas = ExtResource("2_u108g")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bche8"]
+atlas = ExtResource("2_u108g")
+region = Rect2(900, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfibv"]
+atlas = ExtResource("2_u108g")
+region = Rect2(1050, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vbxno"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjtvk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2008")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6w8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ld2bi")
+}],
+"loop": false,
+"name": &"death",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oenmk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wi5rf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkfrr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0sjn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sy5jv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r62f1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bche8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfibv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nd4ol"]
+radius = 13.0
+height = 26.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u108g"]
+radius = 15.0
+
+[node name="FlyingEye" type="CharacterBody2D" unique_id=803823254 groups=["enemies"]]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_u108g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1346995025]
+sprite_frames = SubResource("SpriteFrames_vbxno")
+animation = &"idle"
+frame_progress = 0.3347282
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1617140831]
+position = Vector2(5, 3)
+shape = SubResource("CapsuleShape2D_nd4ol")
+
+[node name="GroundRay" type="RayCast2D" parent="." unique_id=1634019320]
+position = Vector2(27, 0)
+target_position = Vector2(1, 39)
+
+[node name="Killzone" type="Area2D" parent="." unique_id=945410734]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1438074436]
+position = Vector2(5, 3)
+shape = SubResource("CircleShape2D_u108g")
+
+[connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]

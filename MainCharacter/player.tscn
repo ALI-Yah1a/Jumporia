@@ -46,7 +46,6 @@
 [ext_resource type="Texture2D" uid="uid://cfid86csy7ujt" path="res://Assets/player/Run/Warrior_Run_8.png" id="43_4k2tr"]
 [ext_resource type="AudioStream" uid="uid://1ii068be82va" path="res://Assets/sfx/Attack.mp3" id="45_vpnmn"]
 [ext_resource type="AudioStream" uid="uid://c5ix4dk3kbcv5" path="res://Assets/sfx/Death.mp3" id="46_o5g4p"]
-[ext_resource type="AudioStream" uid="uid://cqyi7t4asx2t5" path="res://Assets/sfx/Jump.mp3" id="47_hytr0"]
 [ext_resource type="AudioStream" uid="uid://cglng2htowt6a" path="res://Assets/sfx/Run.mp3" id="48_5ytso"]
 [ext_resource type="Script" uid="uid://cme11iljnoscg" path="res://MainCharacter/hitbox.gd" id="49_vpnmn"]
 
@@ -89,9 +88,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("12_rxskx")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
-"speed": 10.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -220,7 +219,7 @@ height = 32.0
 a = Vector2(0, -12)
 b = Vector2(0, 14)
 
-[node name="Player" type="CharacterBody2D" unique_id=862460250]
+[node name="Player" type="CharacterBody2D" unique_id=862460250 groups=["player"]]
 scale = Vector2(2, 2)
 script = ExtResource("1_ykwn3")
 
@@ -230,8 +229,8 @@ scale = Vector2(1, 0.95454544)
 sprite_frames = SubResource("SpriteFrames_uok1l")
 animation = &"attack"
 autoplay = "idle"
-frame = 8
-frame_progress = 0.6985587
+frame = 11
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=221998998]
 position = Vector2(-4, 3)
@@ -248,14 +247,12 @@ stream = ExtResource("45_vpnmn")
 [node name="DeathSFX" type="AudioStreamPlayer2D" parent="SFX" unique_id=2133206557]
 stream = ExtResource("46_o5g4p")
 
-[node name="JumpSFX" type="AudioStreamPlayer2D" parent="SFX" unique_id=1311248117]
-stream = ExtResource("47_hytr0")
-
 [node name="RunSFX" type="AudioStreamPlayer2D" parent="SFX" unique_id=1621157113]
 stream = ExtResource("48_5ytso")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1355488582]
 position = Vector2(29, 4)
+monitoring = false
 script = ExtResource("49_vpnmn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1851917317]

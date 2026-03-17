@@ -1,21 +1,49 @@
 [gd_scene format=3 uid="uid://cxq3vdx22uuio"]
 
 [ext_resource type="PackedScene" uid="uid://dfonmqdplowq4" path="res://MainCharacter/player.tscn" id="1_n0qsc"]
-[ext_resource type="Texture2D" uid="uid://ulueed11pqsu" path="res://Assets/tileset.png" id="2_dilhk"]
+[ext_resource type="Texture2D" uid="uid://dv8cpllrc1u34" path="res://Assets/decorations/shop.png" id="2_dilhk"]
+[ext_resource type="PackedScene" uid="uid://ck53418q83awx" path="res://Enemies/flying_eye.tscn" id="3_3mhv4"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_3mhv4"]
-a = Vector2(-235, 41)
-b = Vector2(262, 41)
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_n0qsc"]
+a = Vector2(-2223, 91)
+b = Vector2(1464, 83)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3mhv4"]
+size = Vector2(2861.5, 496)
 
 [node name="Level_1" type="Node2D" unique_id=1878134694]
 
 [node name="Player" parent="." unique_id=862460250 instance=ExtResource("1_n0qsc")]
+position = Vector2(-1029, 22)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1804155820]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=898289752]
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1193965584]
-position = Vector2(10, 223)
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=774321767]
+position = Vector2(93.99999, 1146)
+rotation = 3.1415927
+scale = Vector2(42.953033, 21.494522)
 texture = ExtResource("2_dilhk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1387409760]
-shape = SubResource("SegmentShape2D_3mhv4")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2098513397]
+shape = SubResource("SegmentShape2D_n0qsc")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1254145683]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2" unique_id=84981802]
+position = Vector2(-2419, -100)
+rotation = 3.1415927
+scale = Vector2(10, 5)
+texture = ExtResource("2_dilhk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=2065642906]
+position = Vector2(-3258.75, -133)
+shape = SubResource("RectangleShape2D_3mhv4")
+
+[node name="FlyingEye" parent="." unique_id=803823254 instance=ExtResource("3_3mhv4")]
+position = Vector2(-1749, 72)
+
+[node name="FlyingEye2" parent="." unique_id=1903014853 instance=ExtResource("3_3mhv4")]
+position = Vector2(-1279, 69)
+
+[node name="FlyingEye3" parent="." unique_id=693956637 instance=ExtResource("3_3mhv4")]
+position = Vector2(-715, 72)
