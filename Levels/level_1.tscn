@@ -1,3 +1,21 @@
 [gd_scene format=3 uid="uid://cxq3vdx22uuio"]
 
+[ext_resource type="PackedScene" uid="uid://dfonmqdplowq4" path="res://MainCharacter/player.tscn" id="1_n0qsc"]
+[ext_resource type="Texture2D" uid="uid://ulueed11pqsu" path="res://Assets/tileset.png" id="2_dilhk"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_3mhv4"]
+a = Vector2(-235, 41)
+b = Vector2(262, 41)
+
 [node name="Level_1" type="Node2D" unique_id=1878134694]
+
+[node name="Player" parent="." unique_id=862460250 instance=ExtResource("1_n0qsc")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1804155820]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1193965584]
+position = Vector2(10, 223)
+texture = ExtResource("2_dilhk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1387409760]
+shape = SubResource("SegmentShape2D_3mhv4")
