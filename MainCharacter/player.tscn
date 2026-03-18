@@ -28,10 +28,14 @@
 [ext_resource type="Texture2D" uid="uid://dxcop8ipssodc" path="res://Assets/player/Fall/Warrior_Fall_2.png" id="25_i021g"]
 [ext_resource type="Texture2D" uid="uid://dkhi4fxuk66mx" path="res://Assets/player/Fall/Warrior_Fall_3.png" id="26_vkwdl"]
 [ext_resource type="Texture2D" uid="uid://dw52hbdn7ev4f" path="res://Assets/player/idle/Warrior_Idle_1.png" id="27_73eg2"]
+[ext_resource type="Texture2D" uid="uid://cyjnvojugj4tn" path="res://Assets/player/Hurt-Effect/Warrior_hurt_1.png" id="28_5ytso"]
 [ext_resource type="Texture2D" uid="uid://blmgjsqjbv7w6" path="res://Assets/player/idle/Warrior_Idle_2.png" id="28_iu4h8"]
+[ext_resource type="Texture2D" uid="uid://bpnfcdn2nt5mp" path="res://Assets/player/Hurt-Effect/Warrior_hurt_2.png" id="29_a1jef"]
 [ext_resource type="Texture2D" uid="uid://cyrovgf8roa4m" path="res://Assets/player/idle/Warrior_Idle_3.png" id="29_aufsf"]
 [ext_resource type="Texture2D" uid="uid://bpmhvxpcyst7q" path="res://Assets/player/idle/Warrior_Idle_4.png" id="30_0qvu7"]
+[ext_resource type="Texture2D" uid="uid://che80ua3ugr4k" path="res://Assets/player/Hurt-Effect/Warrior_hurt_3.png" id="30_rxskx"]
 [ext_resource type="Texture2D" uid="uid://1wmlq8xst0xx" path="res://Assets/player/idle/Warrior_Idle_5.png" id="31_ngsn6"]
+[ext_resource type="Texture2D" uid="uid://cu2p4yknmk8dc" path="res://Assets/player/Hurt-Effect/Warrior_hurt_4.png" id="31_txvyo"]
 [ext_resource type="Texture2D" uid="uid://de7r3imern7e1" path="res://Assets/player/idle/Warrior_Idle_6.png" id="32_4grnj"]
 [ext_resource type="Texture2D" uid="uid://ueeqkdue8mni" path="res://Assets/player/Jump/Warrior_Jump_1.png" id="33_npqyr"]
 [ext_resource type="Texture2D" uid="uid://df0vl2hf7chfx" path="res://Assets/player/Jump/Warrior_Jump_2.png" id="34_emfa1"]
@@ -146,6 +150,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("28_5ytso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_a1jef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_rxskx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_txvyo")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("27_73eg2")
 }, {
 "duration": 1.0,
@@ -226,10 +247,10 @@ script = ExtResource("1_ykwn3")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1138777951]
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_uok1l")
-animation = &"attack"
+animation = &"hurt"
 autoplay = "idle"
-frame = 11
-frame_progress = 1.0
+frame = 2
+frame_progress = 0.26249823
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=221998998]
 position = Vector2(-4, 3)
@@ -257,5 +278,13 @@ script = ExtResource("49_vpnmn")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1851917317]
 position = Vector2(0, -2)
 shape = SubResource("SegmentShape2D_o5g4p")
+
+[node name="HPLabel" type="Label" parent="." unique_id=579273991]
+offset_left = -10.0
+offset_top = -22.333334
+offset_right = 1.0
+offset_bottom = -11.333334
+theme_override_font_sizes/font_size = 7
+text = "3/3"
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

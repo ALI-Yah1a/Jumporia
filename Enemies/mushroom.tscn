@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://3kxcou14gnku" path="res://Enemies/flying_eye.gd" id="1_2obgq"]
 [ext_resource type="Texture2D" uid="uid://b5wwtk4otq74h" path="res://Assets/monsters/Mushroom/Death.png" id="2_2obgq"]
 [ext_resource type="Texture2D" uid="uid://b3p4cw5iskmnf" path="res://Assets/monsters/Mushroom/Run.png" id="3_v3oa7"]
+[ext_resource type="Texture2D" uid="uid://ppul04sfqsc6" path="res://Assets/monsters/Mushroom/Take Hit.png" id="3_ve0ty"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ve0ty"]
 atlas = ExtResource("2_2obgq")
@@ -18,6 +19,22 @@ region = Rect2(300, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h3qhy"]
 atlas = ExtResource("2_2obgq")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lxx7"]
+atlas = ExtResource("3_ve0ty")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8ni2"]
+atlas = ExtResource("3_ve0ty")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4w043"]
+atlas = ExtResource("3_ve0ty")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lr2li"]
+atlas = ExtResource("3_ve0ty")
 region = Rect2(450, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pi1mi"]
@@ -73,6 +90,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_8lxx7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8ni2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4w043")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lr2li")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_pi1mi")
 }, {
 "duration": 1.0,
@@ -117,7 +151,9 @@ script = ExtResource("1_2obgq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1346995025]
 sprite_frames = SubResource("SpriteFrames_vbxno")
-animation = &"idle"
+animation = &"hurt"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1617140831]
 position = Vector2(1, 5)
@@ -132,5 +168,13 @@ target_position = Vector2(1, 39)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1438074436]
 position = Vector2(1, 5)
 shape = SubResource("CapsuleShape2D_p8ni2")
+
+[node name="HPLabel" type="Label" parent="." unique_id=472220683]
+offset_left = -5.0
+offset_top = -24.5
+offset_right = 6.0
+offset_bottom = -13.5
+theme_override_font_sizes/font_size = 7
+text = "2/2"
 
 [connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]
