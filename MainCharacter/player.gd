@@ -4,19 +4,18 @@ class_name Player
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_sfx: AudioStreamPlayer2D = $SFX/AttackSFX
 @onready var death_sfx: AudioStreamPlayer2D = $SFX/DeathSFX
-@onready var run_sfx: AudioStreamPlayer2D = $SFX/RunSFX
 @onready var hp_label: Label = $HPLabel
 
 
 const SPEED = 280.0
-const JUMP_VELOCITY = -550.0
+const JUMP_VELOCITY = -450.0
 
 var direction = 0
 var is_attacking = false
 var can_attack = true
 var is_hurt = false
-var max_hp = 3
-var current_hp = 3
+var max_hp = 4
+var current_hp = 4
 
 func _ready():
 	update_hp_label()
@@ -52,6 +51,8 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		animated_sprite_2d.play("jump")
+	
 
 	direction = Input.get_axis("move_left", "move_right")
 	if direction:
@@ -67,23 +68,24 @@ func _physics_process(delta):
 		animated_sprite_2d.flip_h = true
 
 	if not is_on_floor():
-		animated_sprite_2d.play("fall")
-		if run_sfx.playing:
-			run_sfx.stop()
+		if velocity.y < 0.0:
+			animated_sprite_2d.play("jump")
+		elif velocity.y > 0.0:
+			animated_sprite_2d.play("fall")
+
+	
 	elif velocity.x != 0:
 		animated_sprite_2d.play("run")
-		if not run_sfx.playing:
-			run_sfx.play()
+
 	else:
 		animated_sprite_2d.play("idle")
-		if run_sfx.playing:
-			run_sfx.stop()
+
 
 func attack():
 	is_attacking = true
 	can_attack = false
 	animated_sprite_2d.play("attack")
-	run_sfx.stop()
+
 	attack_sfx.play()
 	$Hitbox.monitoring = true
 
@@ -104,7 +106,7 @@ func die():
 	set_physics_process(false)
 	animated_sprite_2d.play("death")
 	death_sfx.play()
-	await get_tree().create_timer(0.6).timeout
+	await get_tree().create_timer(1).timeout
 	get_tree().reload_current_scene()
 
 func _on_animated_sprite_2d_animation_finished():

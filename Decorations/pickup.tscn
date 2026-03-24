@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://b0i5lgwtqmusu"]
+
+[ext_resource type="Texture2D" uid="uid://b42b7po1bjvsw" path="res://Assets/decorations/candle/C300-1.png" id="1_eq1uk"]
+[ext_resource type="Texture2D" uid="uid://cmwa27xtsduk1" path="res://Assets/decorations/candle/C300-2.png" id="2_qnh0o"]
+[ext_resource type="Texture2D" uid="uid://dafcn1sjknull" path="res://Assets/decorations/candle/C300-3.png" id="3_r30li"]
+[ext_resource type="AudioStream" uid="uid://b2kg3kpnkhr0n" path="res://Assets/sfx/coin.wav" id="4_kbfcn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4h4gd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_eq1uk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qnh0o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_r30li")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gr1ml"]
+size = Vector2(8.494209, 14.494208)
+
+[node name="Candle" type="Area2D" unique_id=1756328576]
+z_index = 1
+scale = Vector2(1.295, 1.295)
+collision_layer = 4
+collision_mask = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=253243524]
+scale = Vector2(0.04, 0.04)
+sprite_frames = SubResource("SpriteFrames_4h4gd")
+autoplay = "default"
+frame_progress = 0.5457317
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2076106493]
+position = Vector2(0.38610035, 1.841698)
+shape = SubResource("RectangleShape2D_gr1ml")
+
+[node name="PickupSound" type="AudioStreamPlayer2D" parent="." unique_id=69984826]
+stream = ExtResource("4_kbfcn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

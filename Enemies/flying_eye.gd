@@ -64,5 +64,6 @@ func _on_killzone_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		if body.is_attacking:
 			take_damage(1)
+			await get_tree().create_timer(0.5)
 		else:
 			body.take_damage(1)

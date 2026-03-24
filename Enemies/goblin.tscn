@@ -136,27 +136,25 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nd4ol"]
-radius = 13.0
-height = 40.0
+radius = 11.666667
+height = 34.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmmqw"]
-radius = 14.0
-height = 42.0
+radius = 12.666668
+height = 37.333336
 
 [node name="Goblin" type="CharacterBody2D" unique_id=803823254 groups=["enemies"]]
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_tmmqw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1346995025]
 sprite_frames = SubResource("SpriteFrames_vbxno")
-animation = &"hurt"
-frame = 3
-frame_progress = 1.0
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1617140831]
-position = Vector2(3, 9)
+position = Vector2(3.3333333, 8)
 shape = SubResource("CapsuleShape2D_nd4ol")
 
 [node name="GroundRay" type="RayCast2D" parent="." unique_id=1634019320]
@@ -166,7 +164,7 @@ target_position = Vector2(1, 39)
 [node name="Killzone" type="Area2D" parent="." unique_id=945410734]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1438074436]
-position = Vector2(3, 9)
+position = Vector2(3.333332, 7.333332)
 shape = SubResource("CapsuleShape2D_tmmqw")
 
 [node name="HPLabel" type="Label" parent="." unique_id=1860399474]

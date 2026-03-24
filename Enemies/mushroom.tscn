@@ -137,23 +137,21 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8lxx7"]
 radius = 11.0
-height = 38.0
+height = 34.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p8ni2"]
 radius = 12.0
-height = 40.0
+height = 36.0
 
 [node name="mushroom" type="CharacterBody2D" unique_id=803823254 groups=["enemies"]]
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_2obgq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1346995025]
 sprite_frames = SubResource("SpriteFrames_vbxno")
-animation = &"hurt"
-frame = 3
-frame_progress = 1.0
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1617140831]
 position = Vector2(1, 5)
@@ -166,7 +164,7 @@ target_position = Vector2(1, 39)
 [node name="Killzone" type="Area2D" parent="." unique_id=945410734]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1438074436]
-position = Vector2(1, 5)
+position = Vector2(0.66666794, 4.666667)
 shape = SubResource("CapsuleShape2D_p8ni2")
 
 [node name="HPLabel" type="Label" parent="." unique_id=472220683]
