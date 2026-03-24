@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b0i5lgwtqmusu"]
 
 [ext_resource type="Texture2D" uid="uid://b42b7po1bjvsw" path="res://Assets/decorations/candle/C300-1.png" id="1_eq1uk"]
+[ext_resource type="Script" uid="uid://i8wfbnt41aia" path="res://Decorations/pickup.gd" id="1_qnh0o"]
 [ext_resource type="Texture2D" uid="uid://cmwa27xtsduk1" path="res://Assets/decorations/candle/C300-2.png" id="2_qnh0o"]
 [ext_resource type="Texture2D" uid="uid://dafcn1sjknull" path="res://Assets/decorations/candle/C300-3.png" id="3_r30li"]
 [ext_resource type="AudioStream" uid="uid://b2kg3kpnkhr0n" path="res://Assets/sfx/coin.wav" id="4_kbfcn"]
@@ -27,15 +28,16 @@ size = Vector2(8.494209, 14.494208)
 
 [node name="Candle" type="Area2D" unique_id=1756328576]
 z_index = 1
-scale = Vector2(1.295, 1.295)
-collision_layer = 4
-collision_mask = 4
+scale = Vector2(1.5, 1.5)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_qnh0o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=253243524]
 scale = Vector2(0.04, 0.04)
 sprite_frames = SubResource("SpriteFrames_4h4gd")
 autoplay = "default"
-frame_progress = 0.5457317
+frame_progress = 0.14279701
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2076106493]
 position = Vector2(0.38610035, 1.841698)

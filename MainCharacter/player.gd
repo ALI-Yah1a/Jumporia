@@ -8,7 +8,7 @@ class_name Player
 
 
 const SPEED = 280.0
-const JUMP_VELOCITY = -450.0
+const JUMP_VELOCITY = -480.0
 
 var direction = 0
 var is_attacking = false

@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://drhnqjgpyteub"]
+
+[ext_resource type="Texture2D" uid="uid://dus5q4xxfw40b" path="res://Assets/decorations/Key/Key 12 - GREY - frame0000.png" id="1_pf876"]
+[ext_resource type="Script" uid="uid://ukcmcasw7jxq" path="res://Decorations/key.gd" id="1_xfejl"]
+[ext_resource type="Texture2D" uid="uid://r18gpngkhlu8" path="res://Assets/decorations/Key/Key 12 - GREY - frame0001.png" id="2_tc5hq"]
+[ext_resource type="Texture2D" uid="uid://vkehgvbvgv13" path="res://Assets/decorations/Key/Key 12 - GREY - frame0002.png" id="3_xfejl"]
+[ext_resource type="Texture2D" uid="uid://dr2pjujtkyhd4" path="res://Assets/decorations/Key/Key 12 - GREY - frame0003.png" id="4_gebi7"]
+[ext_resource type="Texture2D" uid="uid://dwkoncp6md2n4" path="res://Assets/decorations/Key/Key 12 - GREY - frame0004.png" id="5_n5wpp"]
+[ext_resource type="Texture2D" uid="uid://cspolhbbjhwjc" path="res://Assets/decorations/Key/Key 12 - GREY - frame0005.png" id="6_vmimh"]
+[ext_resource type="Texture2D" uid="uid://c05durkp7fh1r" path="res://Assets/decorations/Key/Key 12 - GREY - frame0006.png" id="7_ljv7b"]
+[ext_resource type="Texture2D" uid="uid://bw5gkoesogpbl" path="res://Assets/decorations/Key/Key 12 - GREY - frame0007.png" id="8_3c5gy"]
+[ext_resource type="Texture2D" uid="uid://dgvccv2cuhinp" path="res://Assets/decorations/Key/Key 12 - GREY - frame0008.png" id="9_b4mnw"]
+[ext_resource type="Texture2D" uid="uid://c2rgbe4unw3p6" path="res://Assets/decorations/Key/Key 12 - GREY - frame0009.png" id="10_qcnyx"]
+[ext_resource type="Texture2D" uid="uid://byor5dbr0cqoi" path="res://Assets/decorations/Key/Key 12 - GREY - frame0010.png" id="11_ufw31"]
+[ext_resource type="Texture2D" uid="uid://c6dvu2dww7yv6" path="res://Assets/decorations/Key/Key 12 - GREY - frame0011.png" id="12_pjtp0"]
+[ext_resource type="Texture2D" uid="uid://c35d2v2qfaw6l" path="res://Assets/decorations/Key/Key 12 - GREY - frame0012.png" id="13_rgbye"]
+[ext_resource type="Texture2D" uid="uid://d0x7gyifl3ab" path="res://Assets/decorations/Key/Key 12 - GREY - frame0013.png" id="14_s6htl"]
+[ext_resource type="Texture2D" uid="uid://bsdlmvjo0v0sm" path="res://Assets/decorations/Key/Key 12 - GREY - frame0014.png" id="15_bb6bb"]
+[ext_resource type="Texture2D" uid="uid://eq5nyi3anrpd" path="res://Assets/decorations/Key/Key 12 - GREY - frame0015.png" id="16_iwv82"]
+[ext_resource type="Texture2D" uid="uid://pvvevmuf4388" path="res://Assets/decorations/Key/Key 12 - GREY - frame0016.png" id="17_gm6i3"]
+[ext_resource type="Texture2D" uid="uid://bxambhpmllu04" path="res://Assets/decorations/Key/Key 12 - GREY - frame0017.png" id="18_73dlj"]
+[ext_resource type="Texture2D" uid="uid://dv32cq78jurkk" path="res://Assets/decorations/Key/Key 12 - GREY - frame0018.png" id="19_l5lot"]
+[ext_resource type="Texture2D" uid="uid://d202t78cv28q7" path="res://Assets/decorations/Key/Key 12 - GREY - frame0019.png" id="20_bv3qm"]
+[ext_resource type="Texture2D" uid="uid://f4ld2hnyd3f" path="res://Assets/decorations/Key/Key 12 - GREY - frame0020.png" id="21_ly7fd"]
+[ext_resource type="AudioStream" uid="uid://b2kg3kpnkhr0n" path="res://Assets/sfx/coin.wav" id="23_gebi7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c1kl7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pf876")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_tc5hq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xfejl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gebi7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_n5wpp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vmimh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ljv7b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3c5gy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_b4mnw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qcnyx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ufw31")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_pjtp0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_rgbye")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_s6htl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_bb6bb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_iwv82")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_gm6i3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_73dlj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_l5lot")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_bv3qm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_ly7fd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 45.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f40v2"]
+size = Vector2(8, 32)
+
+[node name="Key" type="Area2D" unique_id=243834559]
+script = ExtResource("1_xfejl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1657222844]
+sprite_frames = SubResource("SpriteFrames_c1kl7")
+autoplay = "default"
+frame_progress = 0.6755308
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1522856532]
+shape = SubResource("RectangleShape2D_f40v2")
+
+[node name="PickupSound" type="AudioStreamPlayer2D" parent="." unique_id=1466276232]
+stream = ExtResource("23_gebi7")

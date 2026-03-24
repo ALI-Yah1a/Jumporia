@@ -55,6 +55,7 @@ func die():
 	animated_sprite_2d.play("death")
 	collision_shape_2d.disabled = true
 	killzone.monitoring = false
+	get_parent().get_node("res://Levels/level_1.gd").monster_killed()
 	await get_tree().create_timer(0.5).timeout
 	queue_free()
 
