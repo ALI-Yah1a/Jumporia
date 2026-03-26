@@ -33,7 +33,7 @@ func _physics_process(delta):
    ground_ray.position.x = abs(ground_ray.position.x)
   else:
    animated_sprite_2d.flip_h = true
-   animated_sprite_2d.position.x = -2
+   animated_sprite_2d.position.x = 2
    ground_ray.position.x = -abs(ground_ray.position.x)
 
 func _ready():
