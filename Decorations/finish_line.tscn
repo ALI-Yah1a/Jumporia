@@ -106,7 +106,8 @@ animations = [{
 radius = 34.0
 height = 324.0
 
-[node name="FinishLine" type="Area2D" unique_id=918681692]
+[node name="FinishLine" type="Area2D" unique_id=918681692 groups=["level"]]
+z_index = -1
 scale = Vector2(0.8, 0.8)
 collision_layer = 2
 collision_mask = 5

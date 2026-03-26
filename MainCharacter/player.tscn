@@ -235,16 +235,14 @@ animations = [{
 radius = 5.6
 height = 32.8
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_o5g4p"]
-a = Vector2(0, -12)
-b = Vector2(0, 14)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hytr0"]
+size = Vector2(29.5, 32.5)
 
 [node name="Player" type="CharacterBody2D" unique_id=862460250 groups=["player"]]
-scale = Vector2(2.2, 2.2)
+scale = Vector2(2, 2)
 script = ExtResource("1_ykwn3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1138777951]
-position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_uok1l")
 animation = &"idle"
 autoplay = "idle"
@@ -267,8 +265,8 @@ monitoring = false
 script = ExtResource("49_vpnmn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1851917317]
-position = Vector2(0, -2)
-shape = SubResource("SegmentShape2D_o5g4p")
+position = Vector2(-10.75, -0.25)
+shape = SubResource("RectangleShape2D_hytr0")
 
 [node name="HPLabel" type="Label" parent="." unique_id=579273991]
 offset_left = -10.0

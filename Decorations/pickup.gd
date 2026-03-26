@@ -5,14 +5,13 @@ extends Area2D
 
 
 func _on_body_entered(body):
-	
-	if body.is_in_group("player") :
-		get_parent().get_node("res://Levels/level_1.gd").candle_collected()
-		collect()
-		
-		
+ if body.is_in_group("player"):
+  get_tree().call_group("level", "candle_collected")
+  collect()
+  
 func collect():
-	$CollisionShape2D.disabled = true
-	pickup_sound.play()
-	await pickup_sound.finished
-	queue_free()
+ $CollisionShape2D.set_deferred("disabled", true)
+ hide()
+ pickup_sound.play()
+ await pickup_sound.finished
+ queue_free()

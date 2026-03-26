@@ -98,7 +98,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f40v2"]
 size = Vector2(8, 32)
 
-[node name="Key" type="Area2D" unique_id=243834559]
+[node name="Key" type="Area2D" unique_id=243834559 groups=["level"]]
 script = ExtResource("1_xfejl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1657222844]
@@ -111,3 +111,5 @@ shape = SubResource("RectangleShape2D_f40v2")
 
 [node name="PickupSound" type="AudioStreamPlayer2D" parent="." unique_id=1466276232]
 stream = ExtResource("23_gebi7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
