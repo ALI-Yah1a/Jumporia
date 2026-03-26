@@ -17,7 +17,7 @@ var monsters_killed = 0
 var has_key = false
 var key_spawned = false
 
-const REQUIRED_CANDLES = 5
+const REQUIRED_CANDLES = 6
 const REQUIRED_MONSTERS = 3
 
 func _ready():
