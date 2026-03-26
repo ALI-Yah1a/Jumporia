@@ -21,11 +21,20 @@ func _physics_process(delta):
   direction *= -1
  if not ground_ray.is_colliding():
   direction *= -1
+  
  velocity.x = speed * direction
  move_and_slide()
+ 
  if direction != 0:
   animated_sprite_2d.play("idle")
-  animated_sprite_2d.flip_h = direction < 0
+  if direction > 0:
+   animated_sprite_2d.flip_h = false
+   animated_sprite_2d.position.x = -4
+   ground_ray.position.x = abs(ground_ray.position.x)
+  else:
+   animated_sprite_2d.flip_h = true
+   animated_sprite_2d.position.x = 0
+   ground_ray.position.x = -abs(ground_ray.position.x)
 
 
 func _ready():

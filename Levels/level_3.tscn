@@ -24,7 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://cpe03sdcq7qee" path="res://Assets/decorations/sign.png" id="21_1eiy3"]
 [ext_resource type="Texture2D" uid="uid://bjvx43r2q4sik" path="res://Assets/decorations/rock_3.png" id="22_qikbn"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vjhkv"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wnsmg"]
 texture = ExtResource("1_iimkc")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -231,7 +231,7 @@ physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
-sources/0 = SubResource("TileSetAtlasSource_vjhkv")
+sources/0 = SubResource("TileSetAtlasSource_wnsmg")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ualo1"]
 bg_color = Color(0, 0, 0, 1)
@@ -339,7 +339,7 @@ position = Vector2(41, 117)
 zoom = Vector2(1.7, 1.7)
 limit_left = -15
 limit_top = 0
-limit_right = 4750
+limit_right = 4500
 limit_bottom = 895
 
 [node name="FinishLine" parent="." unique_id=918681692 instance=ExtResource("3_1jtbt")]

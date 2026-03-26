@@ -130,8 +130,8 @@ position = Vector2(6, 2)
 shape = SubResource("CapsuleShape2D_o5rw1")
 
 [node name="GroundRay" type="RayCast2D" parent="." unique_id=1634019320]
-position = Vector2(27, 0)
-target_position = Vector2(1, 39)
+position = Vector2(23.076923, 0)
+target_position = Vector2(0, 43.846157)
 
 [node name="Killzone" type="Area2D" parent="." unique_id=945410734]
 
