@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ce24w66f00ec3"]
 
-[ext_resource type="Script" uid="uid://3kxcou14gnku" path="res://Enemies/flying_eye.gd" id="1_noo5i"]
+[ext_resource type="Script" uid="uid://1f88nf23qisj" path="res://Enemies/skeleton.gd" id="1_0wcag"]
 [ext_resource type="Texture2D" uid="uid://5psweemxsqmj" path="res://Assets/monsters/Skeleton/Death.png" id="2_noo5i"]
 [ext_resource type="Texture2D" uid="uid://cssvbas6gimgx" path="res://Assets/monsters/Skeleton/Walk.png" id="3_0wcag"]
 [ext_resource type="Texture2D" uid="uid://l3pkvp7tnhu6" path="res://Assets/monsters/Skeleton/Take Hit.png" id="3_vmj4t"]
@@ -119,7 +119,7 @@ height = 49.84616
 scale = Vector2(1.3, 1.3)
 collision_layer = 2
 collision_mask = 5
-script = ExtResource("1_noo5i")
+script = ExtResource("1_0wcag")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1346995025]
 sprite_frames = SubResource("SpriteFrames_vbxno")

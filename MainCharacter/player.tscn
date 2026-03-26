@@ -255,9 +255,11 @@ shape = SubResource("CapsuleShape2D_hr6kf")
 
 [node name="AttackSFX" type="AudioStreamPlayer2D" parent="SFX" unique_id=667614795]
 stream = ExtResource("45_vpnmn")
+bus = &"SFX"
 
 [node name="DeathSFX" type="AudioStreamPlayer2D" parent="SFX" unique_id=2133206557]
 stream = ExtResource("46_o5g4p")
+bus = &"SFX"
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1355488582]
 position = Vector2(29, 4)

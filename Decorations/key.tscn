@@ -111,5 +111,6 @@ shape = SubResource("RectangleShape2D_f40v2")
 
 [node name="PickupSound" type="AudioStreamPlayer2D" parent="." unique_id=1466276232]
 stream = ExtResource("23_gebi7")
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

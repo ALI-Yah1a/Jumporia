@@ -38,3 +38,11 @@ func _on_level_button_4_pressed() -> void:
 
 func _on_level_button_5_pressed() -> void:
 	play_click()
+
+
+func _on_next_level_button_pressed() -> void:
+	play_click()
+
+
+func _on_main_menu_button_pressed() -> void:
+	play_click()

@@ -5,6 +5,12 @@ extends Node2D
 @onready var player: CharacterBody2D = $Player
 @onready var candles_label: Label = $UI/VBoxContainer/CandlesLabel
 @onready var monsters_label: Label = $UI/VBoxContainer/MonstersLabel
+@onready var adjective_label: Label = $UI/VBoxContainer/AdjectiveLabel
+@onready var level_complete_ui: CanvasLayer = $LevelCompleteUI
+@onready var next_level_button: Button = $LevelCompleteUI/HBoxContainer/NextLevelButton
+@onready var main_menu_button: Button = $LevelCompleteUI/HBoxContainer/MainMenuButton
+@onready var button_sfx: AudioStreamPlayer = $LevelCompleteUI/ButtonSFX
+@onready var end_sfx: AudioStreamPlayer = $EndSFX
 
 var candles_collected = 0
 var monsters_killed = 0
@@ -17,6 +23,13 @@ const REQUIRED_MONSTERS = 3
 func _ready():
  key.visible = false
  key.get_node("CollisionShape2D").set_deferred("disabled", true)
+ level_complete_ui.visible = false
+ 
+ next_level_button.pressed.connect(_on_next_level_pressed)
+ main_menu_button.pressed.connect(_on_main_menu_pressed)
+ 
+ adjective_label.text = "Complete the adjectives to get the key."
+ 
  update_ui()
 
 func update_ui():
@@ -35,6 +48,7 @@ func monster_killed():
 
 func key_collected():
  has_key = true
+ adjective_label.text = "Go to the finish line."
 
 func check_ready_to_finish():
  if not key_spawned and candles_collected >= REQUIRED_CANDLES and monsters_killed >= REQUIRED_MONSTERS:
@@ -51,6 +65,17 @@ func spawn_key_above_player():
 
 func finish_line_reached():
  if has_key:
-  get_tree().change_scene_to_file("res://UI/main_menu.tscn") 
+  get_tree().paused = true
+  end_sfx.play()
+  await end_sfx.finished
+  level_complete_ui.visible = true
  else:
   print("You need the key first!")
+
+func _on_next_level_pressed():
+ get_tree().paused = false
+ get_tree().change_scene_to_file("res://Levels/level_2.tscn")
+
+func _on_main_menu_pressed():
+ get_tree().paused = false
+ get_tree().change_scene_to_file("res://UI/main_menu.tscn")

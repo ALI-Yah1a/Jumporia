@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cv2laxxsyv3xr"]
 
-[ext_resource type="Script" uid="uid://3kxcou14gnku" path="res://Enemies/flying_eye.gd" id="1_tmmqw"]
+[ext_resource type="Script" uid="uid://b06mbwav41b6y" path="res://Enemies/goblin.gd" id="1_m2ssi"]
 [ext_resource type="Texture2D" uid="uid://ronh2tpp0t5p" path="res://Assets/monsters/Goblin/Death.png" id="2_tmmqw"]
 [ext_resource type="Texture2D" uid="uid://ch10msd62ol2y" path="res://Assets/monsters/Goblin/Run.png" id="3_m2ssi"]
 [ext_resource type="Texture2D" uid="uid://hs6et0ul4uen" path="res://Assets/monsters/Goblin/Take Hit.png" id="3_mmtr4"]
@@ -147,7 +147,7 @@ height = 37.333336
 scale = Vector2(1.5, 1.5)
 collision_layer = 2
 collision_mask = 5
-script = ExtResource("1_tmmqw")
+script = ExtResource("1_m2ssi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1346995025]
 sprite_frames = SubResource("SpriteFrames_vbxno")

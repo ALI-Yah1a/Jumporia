@@ -1,5 +1,4 @@
 extends CharacterBody2D
-class_name Enemy
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
@@ -33,7 +32,7 @@ func _physics_process(delta):
    ground_ray.position.x = abs(ground_ray.position.x)
   else:
    animated_sprite_2d.flip_h = true
-   animated_sprite_2d.position.x = -11
+   animated_sprite_2d.position.x = -7
    ground_ray.position.x = -abs(ground_ray.position.x)
 
 func _ready():
