@@ -19,8 +19,11 @@
 [ext_resource type="Script" uid="uid://vr6wl7nwgqep" path="res://UI/button_sfx.gd" id="17_77l7m"]
 [ext_resource type="AudioStream" uid="uid://c7wpf7qhb4fmo" path="res://Assets/soundtracks/Soundtrack_2.mp3" id="18_77l7m"]
 [ext_resource type="AudioStream" uid="uid://bh35foriisl4w" path="res://Assets/sfx/End.mp3" id="19_1rr3k"]
+[ext_resource type="Texture2D" uid="uid://6qewxgjgbvsy" path="res://Assets/decorations/shop_anim.png" id="20_hsj5a"]
+[ext_resource type="Texture2D" uid="uid://ddigpg6pmmq1p" path="res://Assets/decorations/lamp.png" id="21_w38ni"]
+[ext_resource type="Texture2D" uid="uid://bjvx43r2q4sik" path="res://Assets/decorations/rock_3.png" id="22_uclwg"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dilhk"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w38ni"]
 texture = ExtResource("1_dilhk")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -227,7 +230,7 @@ physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
-sources/0 = SubResource("TileSetAtlasSource_dilhk")
+sources/0 = SubResource("TileSetAtlasSource_w38ni")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_34erp"]
 bg_color = Color(0, 0, 0, 1)
@@ -260,6 +263,65 @@ corner_radius_bottom_right = 36
 corner_radius_bottom_left = 36
 shadow_size = 5
 shadow_offset = Vector2(0, 3.6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uclwg"]
+atlas = ExtResource("20_hsj5a")
+region = Rect2(0, 0, 118, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x6gh"]
+atlas = ExtResource("20_hsj5a")
+region = Rect2(118, 0, 118, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_442u8"]
+atlas = ExtResource("20_hsj5a")
+region = Rect2(236, 0, 118, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxl23"]
+atlas = ExtResource("20_hsj5a")
+region = Rect2(354, 0, 118, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg5g8"]
+atlas = ExtResource("20_hsj5a")
+region = Rect2(472, 0, 118, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7b0h"]
+atlas = ExtResource("20_hsj5a")
+region = Rect2(590, 0, 118, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2i07x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uclwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8x6gh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_442u8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxl23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xg5g8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7b0h")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g50tq"]
+size = Vector2(105, 85)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w38ni"]
+size = Vector2(24, 81)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8x6gh"]
+size = Vector2(76, 33.5)
 
 [node name="Level_1" type="Node2D" unique_id=1878134694 groups=["level"]]
 script = ExtResource("1_62b6n")
@@ -418,13 +480,12 @@ theme_override_font_sizes/font_size = 32
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 
-[node name="AdjectiveLabel" type="Label" parent="UI/VBoxContainer" unique_id=1811885406]
+[node name="ObjectiveLabel" type="Label" parent="UI/VBoxContainer" unique_id=1811885406]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 28
 
 [node name="LevelCompleteUI" type="CanvasLayer" parent="." unique_id=66612775]
 process_mode = 3
-visible = false
 
 [node name="Background" type="ColorRect" parent="LevelCompleteUI" unique_id=72830153]
 anchors_preset = 15
@@ -506,6 +567,44 @@ bus = &"Music"
 process_mode = 3
 stream = ExtResource("19_1rr3k")
 bus = &"SFX"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1625511883]
+z_index = -2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=1005174276]
+position = Vector2(1155, 351)
+sprite_frames = SubResource("SpriteFrames_2i07x")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=163406733]
+position = Vector2(1154.5, 373.5)
+shape = SubResource("RectangleShape2D_g50tq")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1475590273]
+z_index = -2
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2" unique_id=1863118733]
+position = Vector2(1284, 661)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("21_w38ni")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1434706252]
+position = Vector2(1283, 662.5)
+shape = SubResource("RectangleShape2D_w38ni")
+
+[node name="Area2D3" type="Area2D" parent="." unique_id=1026210031]
+z_index = -2
+position = Vector2(1012, -416)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D3" unique_id=978986304]
+position = Vector2(1290, 687)
+scale = Vector2(2, 2)
+texture = ExtResource("22_uclwg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3" unique_id=661141980]
+position = Vector2(1294, 689)
+shape = SubResource("RectangleShape2D_8x6gh")
 
 [connection signal="pressed" from="LevelCompleteUI/HBoxContainer/NextLevelButton" to="LevelCompleteUI/ButtonSFX" method="_on_next_level_button_pressed"]
 [connection signal="pressed" from="LevelCompleteUI/HBoxContainer/MainMenuButton" to="LevelCompleteUI/ButtonSFX" method="_on_main_menu_button_pressed"]

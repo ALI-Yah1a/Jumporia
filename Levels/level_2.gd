@@ -17,8 +17,8 @@ var monsters_killed = 0
 var has_key = false
 var key_spawned = false
 
-const REQUIRED_CANDLES = 5
-const REQUIRED_MONSTERS = 3
+const REQUIRED_CANDLES = 10
+const REQUIRED_MONSTERS = 6
 
 func _ready():
  key.visible = false
@@ -74,7 +74,7 @@ func finish_line_reached():
 
 func _on_next_level_pressed():
  get_tree().paused = false
- get_tree().change_scene_to_file("res://Levels/level_2.tscn")
+ get_tree().change_scene_to_file("res://Levels/level_3.tscn")
 
 func _on_main_menu_pressed():
  get_tree().paused = false

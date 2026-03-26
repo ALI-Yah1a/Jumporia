@@ -29,11 +29,11 @@ func _physics_process(delta):
   animated_sprite_2d.play("idle")
   if direction > 0:
    animated_sprite_2d.flip_h = false
-   animated_sprite_2d.position.x = 0
+   animated_sprite_2d.position.x = -11
    ground_ray.position.x = abs(ground_ray.position.x)
   else:
    animated_sprite_2d.flip_h = true
-   animated_sprite_2d.position.x = -11
+   animated_sprite_2d.position.x = 0
    ground_ray.position.x = -abs(ground_ray.position.x)
 
 func _ready():

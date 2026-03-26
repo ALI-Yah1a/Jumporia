@@ -236,7 +236,7 @@ radius = 5.6
 height = 32.8
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hytr0"]
-size = Vector2(29.5, 32.5)
+size = Vector2(39, 32.5)
 
 [node name="Player" type="CharacterBody2D" unique_id=862460250 groups=["player"]]
 scale = Vector2(2, 2)
@@ -267,7 +267,7 @@ monitoring = false
 script = ExtResource("49_vpnmn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1851917317]
-position = Vector2(-10.75, -0.25)
+position = Vector2(-6, -0.25)
 shape = SubResource("RectangleShape2D_hytr0")
 
 [node name="HPLabel" type="Label" parent="." unique_id=579273991]

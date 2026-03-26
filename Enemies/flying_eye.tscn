@@ -136,11 +136,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nd4ol"]
-radius = 13.0
-height = 26.0
+radius = 15.666666
+height = 31.333332
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u108g"]
-radius = 15.0
+radius = 16.336735
 
 [node name="FlyingEye" type="CharacterBody2D" unique_id=803823254 groups=["enemies", "level"]]
 scale = Vector2(1.5, 1.5)
@@ -159,7 +159,7 @@ position = Vector2(5, 3)
 shape = SubResource("CapsuleShape2D_nd4ol")
 
 [node name="GroundRay" type="RayCast2D" parent="." unique_id=1634019320]
-position = Vector2(48.666668, 0)
+position = Vector2(34, 0)
 target_position = Vector2(0.66666794, 49.333336)
 
 [node name="Killzone" type="Area2D" parent="." unique_id=945410734]
